@@ -1,0 +1,9 @@
+.player_stats {
+  background-color: rgb(116, 60, 11);
+  position: fixed;
+  top:0;
+  left:0;
+  width:15vw;
+  height:80vh;
+  border: 2px solid black;
+}

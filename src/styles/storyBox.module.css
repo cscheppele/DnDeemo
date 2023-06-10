@@ -1,0 +1,19 @@
+.story_box {
+  position: fixed;
+  top:80vh;
+  left:15vw;
+  width: 85vw;
+  height: 20vh;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: rgb(116, 60, 11);
+}
+
+.player_input {
+  background-color: palegoldenrod;
+  height:3em;
+  margin-bottom: 5px;
+  width: 95%;
+}

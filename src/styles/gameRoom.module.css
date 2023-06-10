@@ -1,0 +1,36 @@
+.game_room {
+  height: 100vh;
+  width: 100vw;
+}
+
+.dice_box {
+  position: fixed;
+  top:80vh;
+  left:0;
+  width: 15vw;
+  height: 20vh;
+  border: 25px ridge black;
+  background-color: darkred;
+}
+
+.dungeon_map {
+  position: fixed;
+  top:0;
+  left: 15vw;
+  width:85vw;
+  height:80vh;
+  border: 2px solid black;
+  background-image: url('../../public/dungeon-map-prairie.jpeg');
+  background-size: cover;
+}
+
+.end_game {
+  position: fixed;
+  top:10px;
+  right:15px;
+  height: 20px;
+  width: 15px;
+  border: 2px solid black;
+  z-index: 1;
+  background-color: white;
+}
