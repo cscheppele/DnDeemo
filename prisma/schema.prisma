@@ -10,16 +10,36 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  playerId  String @id @unique @default(cuid()) 
-  class     String
-  name      String 
-  roomId    String
-  room      GameRoom @relation(fields: [roomId], references: [id])
+// model Player {
+//   playerId  String @id @unique @default(cuid()) 
+//   class     String
+//   name      String 
+//   roomId    String
+//   room      GameRoom @relation(fields: [roomId], references: [id])
+//   // messages  Message[]
+// }
+
+// model GameRoom {
+//   id        String @id @unique @default(cuid())
+//   // players   Player[] 
+//   // dm        String @default("ai")
+//   messages  Message[]
+// }
+
+model Message {
+  id          String @id @unique @default(cuid())
+  createdOn   DateTime
+  content     String
+  contentType String 
+  // authorId  String
+  author      String @default("DM")
+  // author    Player  @relation(fields:[authorId], references: [playerId]) 
+  // roomId    String
+  // room      GameRoom @relation(fields: [roomId], references: [id])
 }
 
-model GameRoom {
-  id        String @id @unique @default(cuid())
-  players   User[] 
-  dm        String @default("ai")
-}
+// model Class {
+//   id          String @id @unique @default(cuid())
+//   title       String
+//   description String
+// }

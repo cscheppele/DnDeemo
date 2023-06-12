@@ -17,3 +17,8 @@
   margin-bottom: 5px;
   width: 95%;
 }
+
+.story_form {
+  display: flex;
+  width: inherit;
+}

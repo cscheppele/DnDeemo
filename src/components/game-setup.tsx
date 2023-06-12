@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { format } from 'path';
 import { ChangeEvent, useState, useEffect } from 'react';
-import { fetchClassList } from '@/DbServices/Open5eApiservice';
+import { fetchClassList } from '@/api/Open5eApiservice';
 
 export default function GameSetup({show, setShow}:{show:boolean,setShow:any}) {
   //state for form Data
@@ -22,7 +22,7 @@ export default function GameSetup({show, setShow}:{show:boolean,setShow:any}) {
     fetchClassList().then(response => {
       setClassList(response.results)
       //be sure to define the CharClass
-      setClassDescription(response.results.find((el: CharClass) => el.name === formData.class).desc)
+      setClassDescription(response.results.find(el => el.name === formData.class).desc)
     });
   },[])
 
@@ -35,7 +35,7 @@ export default function GameSetup({show, setShow}:{show:boolean,setShow:any}) {
         });
         //the warning for below is is for potentially being undefined, not sure how to fix it, but
         //the code currently still works regardless.
-        setClassDescription(classList.find(el => el.name === formData.class).desc)
+        setClassDescription(classList.find(el => el.name === e.target.value).desc)
         break;
       case 'name': 
         setFormData({
@@ -56,7 +56,7 @@ export default function GameSetup({show, setShow}:{show:boolean,setShow:any}) {
   }
   function handleSubmit (){
     // e.preventDefault()
-    //const player = createplayer()
+    // const player = await prisma.player.create()
     // createRoom(player)
 
   }
