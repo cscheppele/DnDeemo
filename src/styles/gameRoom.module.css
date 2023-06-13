@@ -38,7 +38,7 @@
 .player_icon {
   position: absolute;
   z-index: 1;
-  top:380px;
+  bottom:380px;
   left:400px
 }
 .wolf1_icon {
@@ -51,5 +51,5 @@
   position: absolute;
   z-index: 1;
   top: 380px;
-  right: 350px;
+  right: 380px;
 }

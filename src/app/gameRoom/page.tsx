@@ -1,3 +1,5 @@
+'use client'
+
 import styles from '../../styles/gameRoom.module.css'
 // import Image from 'next/image'
 import PlayerStats from '@/components/playerStats'
@@ -6,6 +8,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export default function GameRoom(){
+  function handleEndGame(){
+    //await prisma.message.deleteMany();
+  }
+
+  //dungeon map and dicebox should be their own components
+  //icons should be moved into dungeon map component and photos corresponding to player and their
+  //chosen icon.  the icons should display in a random arrangement, grouped in a specific location
+  // of the map depending on whether they are a player character, or enemy.
   return (
     <div className={styles.game_room}>
       <PlayerStats/>
@@ -20,7 +30,7 @@ export default function GameRoom(){
       <Image className={styles.d6_icon} src={'/../public/d6.jpeg'} alt="d20 icon" width={50} height={50}/> */}
       </div>
       <StoryBox/>
-      <Link href='/' className={styles.end_game}>X</Link>
+      <Link href='/' className={styles.end_game} onClick={handleEndGame}>X</Link>
     </div>
   )
 }

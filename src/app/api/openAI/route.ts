@@ -1,3 +1,6 @@
+import { NextApiRequest } from "next";
+import { NextResponse } from "next/server";
+
 import prisma from '../../../../libs/prismadb'
 
 const { Configuration, OpenAIApi } = require("openai");
@@ -9,13 +12,13 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const initialOpenAiPrompt ="You will be acting as the Dm for a dnd 5e campaign. You are going to get some previous messages from the campaign, give the next scenario that follows from the actual campaign."
-
-  export async function GET(_req: any){
-    let messages: any[];
+export async function GET(_req: any){
+  let messages: any[];
+  // console.log(initialOpenAiPrompt);
 
   try {
     messages = await prisma.message.findMany()
-    console.log('do you see me?')
+    // console.log('do you see me?')
   } catch (err) {
     console.log("could not get messages.", err);
     messages = []
@@ -25,20 +28,22 @@ const initialOpenAiPrompt ="You will be acting as the Dm for a dnd 5e campaign. 
     let newMsg: any = {};
     newMsg.role = 'user';
     newMsg.content = `${msg.author}-${msg.content}`
+    // console.log("newMsg ==> ",newMsg);
     return newMsg;
   })
-
-  return openai
-    .createChatCompletion({
+console.log("messages ==> ", messages)
+  return new NextResponse(JSON.stringify(
+    openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: [
         {"role": "system" , "content":  initialOpenAiPrompt},
         ...messages],
     })
     .then((completion:any) => {
+      console.log("completion.data.choices[0].message")
       console.log(completion.data.choices[0].message)
       //return completion.data.choices[0].message;
-    }).catch((err:any) => console.log("IS THIS THE ERROR ==> ",err))
+    }).catch((err:any) => console.log("IS THIS THE ERROR ==> ",err))))
   
 
 }

@@ -2,6 +2,7 @@ import { NextApiRequest } from "next";
 import { NextResponse } from "next/server";
 import prisma from '../../../../libs/prismadb'
 
+
 export async function POST(req: any) {
   const body = await req.json();
   body.createdOn = new Date();
@@ -14,5 +15,5 @@ export async function POST(req: any) {
 export async function GET(req: any) {
   const story = await prisma.message.findMany()
   console.log("story: ", story);
-  return story
+  return new NextResponse(JSON.stringify(story))
 }

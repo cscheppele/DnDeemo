@@ -21,7 +21,10 @@ export default function StoryBox () {
     await fetch('/api/story', {
       method: 'POST',
       body,
-    }).then(res => res.json());
+    }).then(async res => await fetch('api/openai', {
+      method: 'GET',
+      headers: {"content-Type": "application/json"},
+      body: JSON.stringify(res.json())}));
     return res;
   }
 
