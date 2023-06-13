@@ -1,6 +1,3 @@
-// import main from "./pgdbApiService";
-// import { prisma } from "./pgdbApiService";
-
 import prisma from '../../../../libs/prismadb'
 
 const { Configuration, OpenAIApi } = require("openai");
@@ -13,15 +10,6 @@ const openai = new OpenAIApi(configuration);
 
 const initialOpenAiPrompt ="You will be acting as the Dm for a dnd 5e campaign. You are going to get some previous messages from the campaign, give the next scenario that follows from the actual campaign."
 
-// let messages= [];
-// main().then(response => {
-//   messages = response.json()
-// })
-
-// async function messages () {
-  //   return await main()
-  // }
-  
   export async function GET(_req: any){
     let messages: any[];
 
@@ -40,8 +28,6 @@ const initialOpenAiPrompt ="You will be acting as the Dm for a dnd 5e campaign. 
     return newMsg;
   })
 
-  console.log("API KEY ==> ", process.env.OPEN_API_KEY)
-
   return openai
     .createChatCompletion({
       model: "gpt-3.5-turbo",
@@ -53,21 +39,6 @@ const initialOpenAiPrompt ="You will be acting as the Dm for a dnd 5e campaign. 
       console.log(completion.data.choices[0].message)
       //return completion.data.choices[0].message;
     }).catch((err:any) => console.log("IS THIS THE ERROR ==> ",err))
-    // .then(async() => {
-    //   console.log("in then of main")
-    //   await prisma.$disconnect()
-    // })
-    // .catch(async (e) => {
-    //   console.error(e);
-    //   await prisma.$disconnect();
-    //   process.exit(1);
-    // })
   
-//   // history: {
-//   //   role: string,
-//   //   content: string,  
-//   //   name: string,
-//   // }[]) {
-//   // fetch()
 
 }

@@ -5,21 +5,11 @@ import styles from '../styles/storyBox.module.css';
 import { ChangeEvent,useState, useEffect } from 'react';
 
 export default function StoryBox () {
-  // const [gameHistory, setGameHistory] = useState<any>([])
-  // console.log(gameHistory)
-  // async function getStory () {
-  //   // const res =  await fetch('/api/story').then(res => res.json());
-  //   // console.log('response from server ==> ',res);
-  //   // setGameHistory(res.map(el => {return {role: el.role, content: el.content}}))
-  //   // return res.json();
-  // }
-  // console.log(getStory())
-
   const [storyFormData, setStoryFormData] = useState({
     type: '',
     content: '',
   });
-  const [gameHistory, setGameHistory] = useState<any[]>([]);
+  const [gameHistory, setGameHistory] = useState(["On your way to the Baromin City you have been attacked by a pair of wolves."]);
 
   async function addToStory (story: any) {
     const body = JSON.stringify({

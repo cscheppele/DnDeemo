@@ -27,6 +27,7 @@ export default function GameSetup({show, setShow}:{show:boolean,setShow:any}) {
   },[])
 
   function handleChange (e: ChangeEvent<HTMLInputElement>) {
+    console.log('target name and value: ', e.target.name, e.target.value);
     switch(e.target.name){
       case 'class':
         setFormData({
@@ -54,21 +55,25 @@ export default function GameSetup({show, setShow}:{show:boolean,setShow:any}) {
     // e.preventDefault
     setShow()
   }
-  function handleSubmit (){
-    // e.preventDefault()
+  function handleSubmit (e: ChangeEvent<HTMLFormElement>){
+    e.preventDefault()
+    const hold = e.target.name;
     // const player = await prisma.player.create()
     // createRoom(player)
-
+    setFormData({
+      name: '',
+      class: 'Fighter',
+    })
   }
 //can I put the classes and classList and description into their own component?
   return (
     <div className={`${styles.game_setup} ${show ? styles.show : ''}`}>
       <div className={`${styles.container} ${show ? styles.show : ''}`}/>
-      <form className={styles.form} onSubmit={() =>handleSubmit()}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <button className={styles.delete} onClick={clickDelete}>X</button>
-        <h1>DnDeemo</h1>
-        <label>Name</label>
-        <input type='text' id='name' onChange={handleChange} value={formData.name} placeholder='Choose a name!'/>
+        <h1 className={styles.title}>DnDeemo</h1>
+        {/* <label>Name</label> */}
+        <input  className={styles.player_name} type='text' name='name' onChange={handleChange} value={formData.name} placeholder='Choose a name!'/>
         <div className={styles.class_options}>
         <label>
           <input
@@ -130,8 +135,8 @@ export default function GameSetup({show, setShow}:{show:boolean,setShow:any}) {
         </label>
       </div>
         <p className={styles.class_description}>{classDescription}</p>
-        <Image src={`/../public/class-icons/${formData.class}Icon.png`} width={200} height={200} alt={`${formData.class} icon`}/>
-        <Link href='/gameRoom'><input type='submit' value='Journey Start'/></Link>
+        <Image src={`/../public/class-icons/${formData.class}Icon.png`} width={100} height={100} alt={`${formData.class} icon`}/>
+        <Link href='/gameRoom'><input className={styles.journey_start} type='submit' value='Journey Start'/></Link>
       </form>
     </div>
   )
