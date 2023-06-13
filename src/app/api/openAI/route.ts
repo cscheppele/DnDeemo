@@ -11,7 +11,9 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const initialOpenAiPrompt ="You will be acting as the Dm for a dnd 5e campaign. You are going to get some previous messages from the campaign, give the next scenario that follows from the actual campaign."
+const initialOpenAiPrompt =
+"You, the ai, will be acting as the Dm for a dnd 5e battle scene for the user.  The user is new to dnd and will be playing a level 2 fighter with chainmail and a longsword.  the user's stats are {str: 16, con: 15, dex: 14, int:11, wis:13, cha: 9} with 16 base health.   For this battle scene the user is in a field and have been attacked by two level 1 wolves.  Please guide the user through this battle scene, asking the user for any appropriate skill checks or dice rolls, specifying the die required and explaining why you are asking for that skill check/roll.  please remember, you should never play/roll for the user, always ask them to take necessary actions on their turn.  you will, however, be controlling the wolves. please also explain any rolls/actions made by the wolves.  Let's begin."
+
 export async function GET(_req: any){
   let messages: any[];
 
