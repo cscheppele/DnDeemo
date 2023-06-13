@@ -1,9 +1,27 @@
 .player_stats {
-  background-color: rgb(116, 60, 11);
+  background-image: url('../..//public/player-list-background.jpeg');
+  background-size: cover;
   position: fixed;
   top:0;
   left:0;
   width:15vw;
   height:80vh;
   border: 2px solid black;
+}
+
+.player_name {
+  font-size: 2em;
+  color: goldenrod
+}
+
+.player_stat {
+  display: flex;
+  background-image: url('../..//public/stat-background.avif');
+  background-size: inherit;
+  background-size:cover;
+  justify-content: center;
+  align-items: flex-end;
+  height:9vh;
+  color: goldenrod;
+  font-size: 2.2em;
 }

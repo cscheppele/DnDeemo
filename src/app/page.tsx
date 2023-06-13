@@ -14,14 +14,19 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <h1 className={styles.title}>DnDeemo</h1>
-      <h2 className={styles.motto}>The DnD Demo</h2>
-      <p className={styles.description}>
-        !!some paragraph about why it came about!!
-        <br/>
-        <br/>
-        !!another paragraph about how we solve it!!
-      </p>
+      <div className={styles.title_logo}>
+        <h1 className={styles.title}>DnDeemo</h1>
+        <h2 className={styles.motto}>The DnD Demo</h2>
+      </div>
+      <div className={styles.description_section}>
+        <div className={styles.description_background}></div>
+        <p className={styles.description}>
+          !!some paragraph about why it came about!!
+          <br/>
+          <br/>
+          !!another paragraph about how we solve it!!
+        </p>
+      </div>
       <button  
       className={styles.adventure_start} 
       onClick={() => changeDisplay()}>

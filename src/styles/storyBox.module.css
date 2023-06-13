@@ -6,19 +6,51 @@
   height: 20vh;
   border: 2px solid black;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  background-color: rgb(116, 60, 11);
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background-image: url('../..//public/leather-background.webp');
+  background-size: cover;
 }
 
 .player_input {
-  background-color: palegoldenrod;
+  background-image: url('../..//public/story-background.jpeg');
+  background-size: cover;
   height:3em;
-  margin-bottom: 5px;
+  margin: 0px 5px 5px 5px;
   width: 95%;
+  
 }
 
 .story_form {
   display: flex;
   width: inherit;
+}
+
+.action_types {
+  background-image: url('../..//public/action-type-background.jpeg');
+  color: white;
+  font-size: large;
+  margin-left: 10px
+}
+
+.submit {
+  background-image: url('../..//public/action-type-background.jpeg');
+  width: 50px;
+  margin-right: 10px
+}
+
+.history {
+  background-image: url('../..//public/story-background.jpeg');
+  background-size: cover;
+  width:inherit;
+  height:70%;
+  border-bottom: 10px solid rgb(116, 60, 11);
+  border-left: 10px solid rgb(116, 60, 11);
+  border-right: 10px solid rgb(116, 60, 11);
+  overflow-y: scroll;
+  font-size: large;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  /* scroll-behavior: smooth;
+  scroll-snap-align: end; */
 }

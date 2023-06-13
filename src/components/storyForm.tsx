@@ -1,7 +1,7 @@
 'use client'
 
 import styles from '../styles/storyBox.module.css'
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState, useEffect } from 'react';
 import storyMaker from '@/api/openAiApiService';
 
 export default function StoryForm(){
@@ -11,26 +11,17 @@ export default function StoryForm(){
   });
   const [gameHistory, setGameHistory] = useState<any[]>([]);
 
-  // useEffect(() => {
-  //   storyMaker()
-  //   // .then((response: any  )=> {
-  //   //   console.log("response: ",response);
-  //     // setGameHistory(response.sort((a,b) => a.createdOn - b.createdOn)))
-  //   // })
-  // }, [])
-
   async function addToStory (story: any) {
     const body = JSON.stringify({
       content: story.content,
       contentType: story.type,
       //createdOn: Date.now()
     })
-    const res =  await fetch('/api/story', {
+    const res =  
+    await fetch('/api/story', {
       method: 'POST',
       body,
     }).then(res => res.json());
-
-    console.log('response from server ==> ',res);
     return res;
   }
 

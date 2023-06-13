@@ -10,3 +10,9 @@ export async function POST(req: any) {
   console.log(storyCreated)
   return new NextResponse(JSON.stringify(storyCreated));
 }
+
+export async function GET(req: any) {
+  const story = await prisma.message.findMany()
+  console.log("story: ", story);
+  return story
+}

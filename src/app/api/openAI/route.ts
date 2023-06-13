@@ -49,10 +49,10 @@ const initialOpenAiPrompt ="You will be acting as the Dm for a dnd 5e campaign. 
         {"role": "system" , "content":  initialOpenAiPrompt},
         ...messages],
     })
-    .then((completion) => {
+    .then((completion:any) => {
       console.log(completion.data.choices[0].message)
       //return completion.data.choices[0].message;
-    }).catch(err => console.log("IS THIS THE ERROR ==> ",err))
+    }).catch((err:any) => console.log("IS THIS THE ERROR ==> ",err))
     // .then(async() => {
     //   console.log("in then of main")
     //   await prisma.$disconnect()

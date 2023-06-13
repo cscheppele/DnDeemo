@@ -10,25 +10,61 @@
   background-size: cover;
 }
 
-.title, .motto{
-  color: rgb(210, 21, 21);
-  
+.title_logo{
+  color: rgb(162, 9, 9);
+  padding: 0;
+  background-image: url('../../public/title-background.png');
+  background-size: cover;
+  width: 35vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 25vh;
+}
+
+.title {
+  margin-top:1vh;
+  font-size: 4.5em;
+  margin-bottom:0;
+}
+
+.motto {
+  margin-top: 0;
+  font-size: 2.5em;
+}
+
+.description_section {
+  display: flex;
+  justify-content: center;
+  align-items: inherit;
+  height: 40vh;
+  width: 75vw;
+  color: white;
+  font-size: 1.3em;
+  position:relative;
+}
+
+.description_background {
+  background-color: black;
+  opacity: 50%;
+  height:inherit;
+  width: inherit;
+  border-radius: 10px;
 }
 
 .description {
-  display: inherit;
-  justify-content: inherit;
-  align-items: inherit;
-  background-color: black;
-  opacity: 50%;
-  width: 75vw;
-  color: white
+  position:absolute;
+  top:10px;
 }
 
 .adventure_start {
   height:3em;
   width: 25vw;
   border-radius: 30px;
+  background-color: antiquewhite;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: rgb(162, 9, 9)
 }
 
 /* Enable hover only on non-touch devices */
