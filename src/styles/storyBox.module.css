@@ -19,19 +19,22 @@
   height:3em;
   margin: 0px 5px 5px 5px;
   width: 95%;
-  
+  font-size: 1.1em;
+  font-weight: bold;
 }
 
 .story_form {
   display: flex;
   width: inherit;
+  font-weight: bold;
 }
 
 .action_types {
   background-image: url('../..//public/action-type-background.jpeg');
   color: white;
   font-size: large;
-  margin-left: 10px
+  margin-left: 10px;
+  font-weight: bold;
 }
 
 .submit {
@@ -45,11 +48,12 @@
   background-size: cover;
   width:inherit;
   height:70%;
-  border-bottom: 10px solid rgb(116, 60, 11);
+  /* border-bottom: 10px solid rgb(116, 60, 11);
   border-left: 10px solid rgb(116, 60, 11);
-  border-right: 10px solid rgb(116, 60, 11);
+  border-right: 10px solid rgb(116, 60, 11); */
   overflow-y: scroll;
   font-size: large;
+  font-weight: bold;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   /* scroll-behavior: smooth;
   scroll-snap-align: end; */

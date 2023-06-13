@@ -15,17 +15,22 @@ export default function StoryBox () {
     const body = JSON.stringify({
       content: story.content,
       contentType: story.type,
-      //createdOn: Date.now()
     })
     const res =  
     await fetch('/api/story', {
       method: 'POST',
       body,
-    }).then(async res => await fetch('api/openai', {
-      method: 'GET',
-      headers: {"content-Type": "application/json"},
-      body: JSON.stringify(res.json())}));
-    return res;
+    })
+    // .then(async res => await fetch('api/openai'));
+    // console.log("res: ", res);
+    const response = await res.json();
+    // console.log("response1: ", response);
+    return response;
+  }
+
+  async function aiResponse(updatedStory: string[]){
+
+
   }
 
   function handleSubmit (e: ChangeEvent<HTMLFormElement>) {
@@ -33,8 +38,18 @@ export default function StoryBox () {
     if (storyFormData.content === "" || storyFormData.type === "") return alert("Please fill out all fields")
     addToStory(storyFormData).then((response: any) => {
       setGameHistory((prevHistory) => [...prevHistory, response.content])
-      console.log("gameHistory: ", gameHistory)
+      fetch('/api/openAI')
+        .then(res => {
+          console.log("res: ",res)
+          return res.json()
+        })
+        .then(res1 => {
+          console.log("res1: ",res1)
+          return res1;
+        })
+        .then(res2 => setGameHistory((prevHistory: any) => [...prevHistory, res2.content]))
     })
+
     setStoryFormData({
       type: '',
       content: '',
