@@ -8,7 +8,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export default function GameRoom(){
-  function handleEndGame(){
+  /*async*/function handleEndGame(){
     //await prisma.message.deleteMany(gameRoom.id = this gameroom.id);
     //await prisma.player.delete()
     //await prisma.gameRoom.delete() if this gameRoom has no more players in it.
