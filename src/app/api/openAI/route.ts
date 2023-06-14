@@ -36,7 +36,7 @@ Let's begin. please set the scene and ask for an initiative roll to begin.`
 export async function GET(_req: any){
   let messages: any[];
 
-  //should possibly pull this out to make this function more singular.
+  //should possibly pull this out to make this function more
   try {
     messages = await prisma.message.findMany()
   } catch (err) {

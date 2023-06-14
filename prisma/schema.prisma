@@ -35,6 +35,9 @@ datasource db {
 //   // players   Player[] 
 //   // dm        String @default("ai")
 //   messages  Message[]
+//   //level   Int //possibly assign level here so all players in a room are playing at the same character level
+//  //difficulty String //when this feature is introduced the typescript types should be along the lines of
+//                      //"beginner" "some experience" "experienced but learning" "experienced and here to help friends"
 // }
 
 model Message {
@@ -78,8 +81,19 @@ model Message {
 
 //character would eventually take over most of the role player is currently planned to provide,
 //then players would just have a property assigned to a specific character, but this will be a concern for
-//later down the line in production.
+//later down the line in production.  class as well when we get into proper character creation
 
 //model character {
-
+//  name        String
+//  class       Class @relation(fields:[classId], references: [id])
+//  classId     String
+//  equipment   String[] //this you can pull from the 5e api I think, otherwise, equipment alone could add several more tables.
+//                       //but  to begin with, the ai is also familiar with the equipment stats already, so you could just include
+//                       //the equipment name as a string if you wanted to here.
+//   stats       {str: String, 
+                 // con: String,
+                 // dex: String,
+                 // int: String,
+                 // wis: String,
+                 // cha: String} 
 //}
