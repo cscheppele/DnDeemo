@@ -12,12 +12,23 @@ datasource db {
 
 // model Player {
 //   playerId  String @id @unique @default(cuid()) 
-//   class     String
+//   class     Class @relation(fields:[classId], references: [id])
+//   classId   String
 //   name      String 
 //   roomId    String
 //   room      GameRoom @relation(fields: [roomId], references: [id])
-//   // messages  Message[]
+//   // messages  Message[] //as more players are introduced, I'd like to keep a record of who said what in the chat
+//   //level   Int //as different player experience levels are introduced we can use this and have more options per class
+                  //depending on the player level
+//   //character Character @relation(fields: [characterId], references: [id]) //once we introduce character creation, this 
+//                   //may take over all the information above, and even at beginner levels, we will simply have prebuilt characters in this db.
+//   //characterId String
 // }
+
+//once I have functionality for multiple players in one room, I would like to add the possibility of multiple room
+// so people can have different games going across the world, and once those are working, I want to bring in
+//zoom functionality basically.  so all players can see and interact with each other, as well as being
+//able to branch off into private sub rooms for juicy in-game drama and secrets.  
 
 // model GameRoom {
 //   id        String @id @unique @default(cuid())
@@ -30,14 +41,27 @@ model Message {
   id          String @id @unique @default(cuid())
   createdOn   DateTime
   content     String
-  contentType String 
-  role        String @default("user")
-  // authorId  String
-  author      String @default("DM")
+  contentType String //this only has three possible options, consider changing type to just these three things. 
+  role        String @default("user") //there are only 3 possible roles, "system", "assisant", "user".
+  //                     //the initial prompt is the only system, then ai responses are "assistant", and user is user."
+  //                    // set the typescript type to these three options.
+  // authorId  String //Id eventually like to show who actually sent the message
+  author      String @default("DM") //this is a placeholder for the line below.
   // author    Player  @relation(fields:[authorId], references: [playerId]) 
   // roomId    String
   // room      GameRoom @relation(fields: [roomId], references: [id])
 }
+
+//I am not a huge fan of the data structure the open 5e has for its classes
+//I could format the data to be more presentable, but its still more information
+//than I necessarily want for a beginner description, so I am considering making my
+//own class model. It will have a beginner friendly introduction, some hard coded 
+//character stats as well as hardcoded equipment for the ai to read. and the player
+//information can be uploaded from here.
+
+//also want to build in a dm class for those who want to practice dming, and the ai will only
+//be available as an assistant to the dm or to offer suggestions / clarification to players if
+//the dm is unable to help.
 
 // model Class {
 //   id          String @id @unique @default(cuid())
@@ -49,4 +73,13 @@ model Message {
                  // int: String,
                  // wis: String,
                  // cha: String} 
+//    equipment  String[]
 // }
+
+//character would eventually take over most of the role player is currently planned to provide,
+//then players would just have a property assigned to a specific character, but this will be a concern for
+//later down the line in production.
+
+//model character {
+
+//}

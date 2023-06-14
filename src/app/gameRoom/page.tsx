@@ -13,18 +13,27 @@ export default function GameRoom(){
   }
 
   //dungeon map and dicebox should be their own components
+  //within dicebox I was hoping to have a visual of dice rolling and the dice rolled would depend on 
+  //the action taken by the player. showing the appropriate type and number of dice.  since dice box
+  //is currently tucked into the corner, I was thinking it should pop up and expand to the middle when 
+  //the dice are actually rolling for an easier visual for beginners to follow.
+
   //icons should be moved into dungeon map component and photos corresponding to player and their
   //chosen icon.  the icons should display in a random arrangement, grouped in a specific location
-  // of the map depending on whether they are a player character, or enemy.
+  // of the map depending on whether they are a player character, or enemy.  so I might need move the 
+  //position styling of the icons to inline styling and use a function to generate random coordinates 
+  //for each character within a given area.
+
   return (
     <div className={styles.game_room}>
       <PlayerStats/>
       <div className={styles.dungeon_map}/>
+      {/* use a basic image for now, up next is icon movement for players, only allowed for the dm and the specific player
+       then possibly introducing interactive obstacles, such as trees or rocks and handle object collision,
+       step three is look at dungeon alchemist to see if I can pull in its dungeon creation algorithm. */}
       <Image className={styles.player_icon} src={'/../public/fighter-profile.jpeg'} alt="player 1 icon" width={50} height={50}/>
       <Image className={styles.wolf1_icon} src={'/../public/wolf-icon.jpeg'} alt="wolf 1 icon" width={50} height={50}/>
       <Image className={styles.wolf2_icon} src={'/../public/wolf-icon.jpeg'} alt="wolf 2 icon" width={50} height={50}/>
-      {/* use a basic image for now, possible step two is introducing obstacles, step three is look at
-      dungeon alchemist to see if I can pull in its dungeon creation algorithm. */}
       <div className={styles.dice_box}>
       {/* <Image className={styles.d20_icon} src={'/../public/d20.jpeg'} alt="d20 icon" width={50} height={50}/>
       <Image className={styles.d6_icon} src={'/../public/d6.jpeg'} alt="d20 icon" width={50} height={50}/> */}

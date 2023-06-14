@@ -8,10 +8,19 @@ import { useState } from 'react'
 export default function Home() {
   const [setupDisplay, setSetupDisplay] = useState(false);
   
+  //this will show the gamesetup component, 
   function changeDisplay() {
     setSetupDisplay(!setupDisplay)
   }
+//The descriptions is pretty long, so it might make more sense to just put it in its own 
+//component for ease of readability.
 
+  //once I have full functionality for a single player, the gameroom model will need to be developed
+  //because at the bottom of this page I would like to have two buttons, one for creating a new gameroom
+  //and one for joining an existing game.  
+  //I may also need a separate button for dming, but I am not sure if I want to send them to a different
+  //game setup or if I just want to create a DM class players can choose and limit gameRooms to one
+  //DM per room
   return (
     <main className={styles.main}>
       <div className={styles.title_logo}>
