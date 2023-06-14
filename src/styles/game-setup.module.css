@@ -22,7 +22,6 @@
 
 .form {
   border-radius: 20px;
-  /* border:10px ridge silver; */
   color: black;
   display: flex;
   flex-direction: column;
@@ -32,7 +31,7 @@
   background-size: cover;
   opacity: 1;
   height: 80vh;
-  width: 45vw;
+  width: 47vw;
   position:relative
 }
 
@@ -48,7 +47,7 @@
 
 .delete {
   position: absolute;
-  top: 65px;
+  top: 70px;
   right:45px;
   background: none;
   color: white;

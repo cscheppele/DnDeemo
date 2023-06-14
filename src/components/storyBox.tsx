@@ -28,10 +28,18 @@ export default function StoryBox () {
     return response;
   }
 
-  async function aiResponse(updatedStory: string[]){
-
-
-  }
+useEffect(()=> {
+  fetch('/api/openAI')
+        .then(res => {
+          console.log("res: ",res)
+          return res.json()
+        })
+        .then(res1 => {
+          console.log("res1: ",res1)
+          return res1;
+        })
+        .then(res2 => setGameHistory((prevHistory: any) => [...prevHistory, res2.content]))
+},[])
 
   function handleSubmit (e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();

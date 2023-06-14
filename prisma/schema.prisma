@@ -43,4 +43,10 @@ model Message {
 //   id          String @id @unique @default(cuid())
 //   title       String
 //   description String
+//   stats       {str: String, 
+                 // con: String,
+                 // dex: String,
+                 // int: String,
+                 // wis: String,
+                 // cha: String} 
 // }
