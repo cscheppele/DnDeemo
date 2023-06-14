@@ -35,7 +35,9 @@ export default function GameSetup({show, setShow}:{show:boolean,setShow:any}) {
           class: e.target.value,
         });
         //the warning for below is is for potentially being undefined, not sure how to fix it, but
-        //the code currently still works regardless.
+        //the code currently still works regardless. I can probably set initial state differently
+        //but again, needing to set the exact type of the class when class is flexible seems annoying
+        //during development, jaja.
         setClassDescription(classList.find(el => el.name === e.target.value).desc)
         break;
       case 'name': 
@@ -51,15 +53,16 @@ export default function GameSetup({show, setShow}:{show:boolean,setShow:any}) {
 
   //cancel game/character creation and return to home page
   function clickDelete(){
-    //need to prevent the full page rerender.  probably has to do with use client v server.
-    // e.preventDefault
+    //need to prevent the full page rerender.  probably has to do with use client v server component.
+    // e.preventDefault() maybe?
     setShow()
   }
   function handleSubmit (e: ChangeEvent<HTMLFormElement>){
     e.preventDefault()
     const hold = e.target.name;
-    // const player = await prisma.player.create()
-    // createRoom(player)
+    // const player = await prisma.player.create({player info})
+    // new room? prisma.gameRoom.create({roominfo }) or if joining existing prisma.gameRoom.update({players = [...players, new player]})
+    // take this roomId and pass it to the gameRoom, so it knows which room to open.
     setFormData({
       name: '',
       class: 'Fighter',
@@ -67,6 +70,7 @@ export default function GameSetup({show, setShow}:{show:boolean,setShow:any}) {
   }
 //can I put the classes and classList and description into their own component?
   return (
+    //for multiple classes, be sure to wrap them in an object.
     <div className={`${styles.game_setup} ${show ? styles.show : ''}`}>
       <div className={`${styles.container} ${show ? styles.show : ''}`}/>
       <form className={styles.form} onSubmit={handleSubmit}>

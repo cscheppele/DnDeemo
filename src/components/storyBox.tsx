@@ -67,6 +67,8 @@ export default function StoryBox () {
           return res1;
         })
         .then(res2 => setGameHistory((prevHistory: any) => [...prevHistory, res2.content]))
+        //this long chain of thens is obnoxious but necessary to get to the actual ai response data.
+        //at least as far as we were able to manage.
     })
 
     setStoryFormData({

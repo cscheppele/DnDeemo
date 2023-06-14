@@ -9,7 +9,14 @@ import Image from 'next/image'
 
 export default function GameRoom(){
   function handleEndGame(){
-    //await prisma.message.deleteMany();
+    //await prisma.message.deleteMany(gameRoom.id = this gameroom.id);
+    //await prisma.player.delete()
+    //await prisma.gameRoom.delete() if this gameRoom has no more players in it.
+    //await prisma.character.delete()
+    //you can delete all of these at once if they are related in the db I think, but I'm
+    //not sure if I want the players and characters deleted when they leave the room or if
+    //they should have the chance to rejoin the room with the same character or not as
+    //long as the room is still open.
   }
 
   //dungeon map and dicebox should be their own components

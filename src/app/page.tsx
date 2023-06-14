@@ -7,6 +7,10 @@ import { useState } from 'react'
 
 export default function Home() {
   const [setupDisplay, setSetupDisplay] = useState(false);
+
+  //any's are sprinkled throughout either explicitly or implicitly.  most of these were because the type is obscure and our focus was function
+//to start and clean code came second, so keep an eye out. especially in any function dealing with a db or
+//api call.
   
   //this will show the gamesetup component, 
   function changeDisplay() {
