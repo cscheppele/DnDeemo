@@ -21,3 +21,5 @@ you will need to run npm i to install all dependencies and npm run build to comp
 
 once that is done, run npm run dev and let your journey begin
 
+an easier way to see your prisma database
+
