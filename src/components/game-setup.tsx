@@ -38,7 +38,7 @@ export default function GameSetup({show, setShow}:{show:boolean,setShow:any}) {
         //the code currently still works regardless. I can probably set initial state differently
         //but again, needing to set the exact type of the class when class is flexible seems annoying
         //during development, jaja.
-        setClassDescription(classList.find(el => el.name === e.target.value).desc)
+        setClassDescription(classList.find((el as ) => el.name === e.target.value).desc)
         break;
       case 'name': 
         setFormData({
