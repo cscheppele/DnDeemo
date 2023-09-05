@@ -1,4 +1,6 @@
 # DnDeemo
+This second readme is more for some personal refactor guidance for me and a specific individual who wanted to help, If you are neither of us, you are welcome to keep reading, but not sure how much use it will be, jaja. 
+
 Making Dnd accessible.
 
 I tried to go through all files and add comments on what I was envisioning, explaining any
@@ -16,8 +18,6 @@ The "app" folder is our home page url.  any folders inside of it are url extensi
 you will need an api key for the open ai.
 
 you can create an account with open ai and generate an api key with them very easily, it takes less than a minute.  that will be the source of your conversation.
-
-you will need to run npm i to install all dependencies and npm run build to compile the typescript
 
 once that is done, run npm run dev and let your journey begin
 
